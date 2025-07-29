@@ -3,9 +3,9 @@ import { conToDb } from "@/lib/db";
 import { User } from "@/models/User";
 import { error } from "console";
 
-export async function POST(required: NextRequest) {
+export async function POST(req: NextRequest) {
   try {
-    const { email, password } = await required.json();
+    const { email, password } = await req.json();
     if (!email || !password) {
       return NextResponse.json(
         { error: "email and password are required" },
@@ -22,7 +22,7 @@ export async function POST(required: NextRequest) {
       );
     }
 
-    const user = await User.create({
+    await User.create({
       email,
       password,
     });
