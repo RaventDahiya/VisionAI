@@ -1,7 +1,8 @@
 import { ImageKitProvider } from "@imagekit/next";
 import { SessionProvider } from "next-auth/react";
-const urlendpoint = process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
-const publicKey = process.env.NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY;
+
+const urlendpoint = process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT!;
+
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <>
